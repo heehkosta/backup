@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<context:property-placeholder location="classpath:config/jdbc.properties"/>
+<bean id= "dataSoruce" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="${JDBC.Driver}"></property>
+	<property name="url" value="${JDBC.ConnectionURL}"></property>
+	<property name="username" value="${JDBC.Username}"></property>
+	<property name="password" value="${JDBC.Password}"></property>
+</bean>
+
+<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="configLocation" value="classpath:config/SqlMapConfig.xml"/>
+	<property name="dataSource" ref="dataSoruce"/>
+</bean>
+<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" >
+	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+</bean>
+
+</beans>
