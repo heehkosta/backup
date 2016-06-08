@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cardSql">
+	
+	<resultMap type="card" id="cardRM">
+		<result property="cardNo" column="card_no" jdbcType="NUMERIC"/>
+		<result property="template" column="template" jdbcType="VARCHAR"/>
+		<result property="cardDate" column="card_date" jdbcType="VARCHAR"/>
+		<result property="hallName" column="hall_name" jdbcType="VARCHAR"/>
+		<result property="hallLocation" column="hall_location" jdbcType="VARCHAR"/>
+		<result property="hallTel" column="hall_tel" jdbcType="VARCHAR"/>
+		<result property="groomTel" column="groom_tel" jdbcType="VARCHAR"/>
+		<result property="brideTel" column="bride_tel" jdbcType="VARCHAR"/>
+		<result property="memberVO.memberId" column="member_id"/>
+		<result property="photobookVO.bookNo" column="book_no"/>
+	</resultMap>
+	
+	<resultMap type="cardComment" id="cardCommentRM">
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="guest" column="guest" jdbcType="VARCHAR"/>
+		<result property="writeDate" column="write_date" jdbcType="VARCHAR"/>
+		<result property="cardVO.cardNo" column="card_no"/>
+	</resultMap>
+	
+	
+</mapper>	
