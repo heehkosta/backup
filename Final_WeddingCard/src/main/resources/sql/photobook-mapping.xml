@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="photoBookSql">
+
+<!-- 전체 게시글 보기 위한 ResultMap -->
+<!-- jdbcType::
+	insert, update, delete의 경우 nullable컬럼인 경우에만 필수이다.
+ -->
+<resultMap type="photoBook" id="photoBookRM">
+	<result property="bookNo" column="book_no"/>
+	<result property="bookName" column="book_name"/>
+	<result property="fileName" column="file_name"/>
+	<result property="createDate" column="create_date"/>
+	
+	<result property="memberVO.memberId" column="member_id"/>
+	<result property="memberVO.name" column="name"/>
+	
+</resultMap>
+<resultMap type="photoBook" id="photoBookByNo" extends="photoBookRM">
+	<result property="bookComment" column="book_comment"/>
+</resultMap>
+
+
+<sql id="photoBook-select">
+select book_no, book_name, file_name, create_date, m.member_id, m.name from photobook p, member m 
+</sql>
+
+<select id="getPhotoBookList" parameterType="photoBook" resultMap="photoBookRM">
+	<include refid="photoBook-select"></include>
+	where p.member_id=m.member_id and m.member_id=#{memberVO.memberId}
+</select>
+
+<select id="getPhotoBookByNo" parameterType="photoBook" resultMap="photoBookByNo">
+	select book_no, book_name, file_name, create_date, book_comment, m.member_id, m.name 
+	from photobook p, member m 
+	where p.member_id=m.member_id and m.member_id=#{memberVO.memberId} and book_no=#{bookNo}
+</select>
+
+<insert id="createPhotoBook" parameterType="photoBook">
+	<selectKey keyProperty="bookNo" resultType="int" order="BEFORE">
+		select photobook_seq.nextVal from dual
+	</selectKey>
+	insert into photobook(book_no, book_name, file_name, create_date, book_comment, member_id) 
+	values(#{bookNo}, #{bookName}, #{fileName}, sysdate, #{bookComment}, #{memberVO.memberId}) 
+</insert>
+
+<update id="modifyPhotoBook" parameterType="photoBook">
+	update photobook 
+	set book_name=#{bookName}, file_name=#{fileName}, create_date= sysdate, book_comment = #{bookComment} 
+	where member_id=#{memberVO.memberId}	
+</update>
+
+<delete id="deletePhotoBook" parameterType="int">
+	delete from photobook where book_no= #{value}
+</delete>
+
+<!-- private int bookNo;
+	private String bookName;
+	private String fileName;
+	private String createDate;
+	private MemberVO memberVO;
+	private MultipartFile file; -->
+	
+<!-- <insert id="write" parameterType="board">
+	<selectKey keyProperty="no" resultType="int" order="BEFORE">
+		SELECT springboard_upload_seq.nextVal FROM dual
+	</selectKey>
+	INSERT INTO 
+	springboard_upload(no, title, content, w_date, id, orgfilename, newfilename)
+	VALUES(#{no}, #{title}, #{content}, sysdate, #{memberVO.id}, #{orgfilename}, #{newfilename} )
+</insert>
+
+<select id="selectByForDate" resultType="string" parameterType="int">
+	SELECT w_date
+	FROM springboard_upload
+	WHERE no = #{value}
+</select>
+
+
+<select id="getBoardList" resultMap="boardListRM">
+	SELECT no, title, count, w_date, name
+	FROM
+	(SELECT no, title, count, w_date, CEIL(rownum/5) page, name
+	FROM (
+		SELECT s.no, s.title, s.count, to_char(s.w_date, 'YYYY.MM.DD') w_date, m.name
+		FROM springboard_upload s, member m
+		WHERE s.id = m.id 
+		ORDER BY s.no DESC))
+	WHERE page=#{value}
+</select>	
+
+
+<resultMap type="board" id="boardRM" extends="boardListRM">
+	<result property="content" column="content"/>
+	<result property="memberVO.id" column="id"/>
+	fileUpload 부분 추가...
+	<result property="orgfilename" column="orgfilename"/>
+	<result property="newfilename" column="newfilename"/>
+</resultMap>	
+<select id="showContent" resultMap="boardRM" >
+	SELECT no, title, content, w_date, count, m.id, m.name,
+	orgfilename, newfilename
+	FROM springboard_upload s , member m
+	WHERE s.id = m.id AND s.no = #{value} 
+</select>
+
+<delete id="delete" >
+	DELETE FROM springboard_upload
+	WHERE no=#{value}
+</delete>
+
+<update id="updateCount">
+	UPDATE springboard_upload SET count = count + 1
+	WHERE no = #{value}
+</update>
+
+<update id="updateBoard" parameterType="board">
+	UPDATE springboard_upload 
+	SET title=#{title} , content=#{content},
+	orgfilename = #{orgfilename}, newfilename=#{newfilename}
+	WHERE no = #{no}	
+</update>
+
+<select id="totalCount" resultType="int">
+	SELECT count(-1) FROM springboard_upload
+</select>	 -->
+
+
+</mapper>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

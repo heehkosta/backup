@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,14 +31,15 @@
 
 <title>Insert title here</title>
 <script type="text/javascript">
-	function logout(){
-		var f=confirm("로그아웃 하시겠습니까?");
-		if(f)
-			location.href="member.do?command=logout"; //Controller에서 기능으로 연결..
+	function logout() {
+		var f = confirm("로그아웃 하시겠습니까?");
+		if (f)
+			location.href = "member.do?command=logout"; //Controller에서 기능으로 연결..
 	}
 </script>
 </head>
 <body>
+
 
 <nav class="navbar navbar-inverse" >
   <div class="container-fluid">
@@ -123,6 +124,7 @@
 </section> --%>
 
 <a href="board.do?command=list"><img alt="게시판 목록" src="img/list_btn.jpg" border="0"></a>
+
 </body>
 </html>
 
