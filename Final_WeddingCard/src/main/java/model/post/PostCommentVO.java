@@ -2,7 +2,7 @@ package model.post;
 
 import model.member.MemberVO;
 
-public class PostComment {
+public class PostCommentVO {
 
 	private int commentNo;
 	private String content;
@@ -10,9 +10,9 @@ public class PostComment {
 	private MemberVO memberVO;
 	private PostVO postVO;
 	
-	public PostComment() {}
+	public PostCommentVO() {}
 	
-	public PostComment(int commentNo, String content, String writeDate,
+	public PostCommentVO(int commentNo, String content, String writeDate,
 			MemberVO memberVO) {
 		super();
 		this.commentNo = commentNo;
@@ -21,7 +21,7 @@ public class PostComment {
 		this.memberVO = memberVO;
 	}
 
-	public PostComment(int commentNo, String content, String writeDate,
+	public PostCommentVO(int commentNo, String content, String writeDate,
 			PostVO postVO) {
 		super();
 		this.commentNo = commentNo;
@@ -30,7 +30,7 @@ public class PostComment {
 		this.postVO = postVO;
 	}
 
-	public PostComment(int commentNo, String content, String writeDate,
+	public PostCommentVO(int commentNo, String content, String writeDate,
 			MemberVO memberVO, PostVO postVO) {
 		super();
 		this.commentNo = commentNo;
