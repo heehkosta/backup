@@ -28,7 +28,7 @@
 		INSERT
 		INTO post (post_no, title, content, write_date, kind, member_id)
 		VALUES(
-			#{postNo}, #{title}, #{content}, sysdate, 'qna', #{memberVO.memberId}
+			#{postNo}, #{title}, #{content}, sysdate, #{kind}, #{memberVO.memberId}
 		)
 	</insert>
 	
@@ -44,18 +44,6 @@
 		FROM post
 		WHERE post_no = #{value}
 	</delete>
-	
-	<insert id="writeAnonPost" parameterType="post">
-		<selectKey keyProperty="postNo" resultType="int" order="BEFORE">
-			SELECT post_seq.nextVal FROM dual
-		</selectKey>
-		
-		INSERT
-		INTO post (post_no, title, content, write_date, kind, member_id)
-		VALUES(
-			#{postNo}, #{title}, #{content}, sysdate, 'anon', #{memberVO.memberId}
-		)
-	</insert>
 	
 	<select id="getPostList" parameterType="string" resultMap="postRM">
 		<include refid="post-select"/>
@@ -91,9 +79,21 @@
 		)
 	</insert>
 	
-	<select id="getCommentList" parameterType="int">
+	<update id="modifyComment" parameterType="postComment">
+		UPDATE postcomment
+		SET content = #{content}
+		WHERE comment_no = #{commentNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="int">
+		DELETE
+		FROM postcomment
+		WHERE comment_no = #{value}
+	</delete>
+	
+	<select id="getCommentList" parameterType="int" resultMap="postCommentRM">
 		SELECT comment_no, content, write_date, member_id, post_no
-		FROM postcommnet
+		FROM postcomment
 		WHERE post_no = #{value}
 	</select>
 	
@@ -114,7 +114,7 @@
 		)
 	</insert>
 	
-	<select id="getReview" resultMap="reviewCommentRM">
+	<select id="getReviewList" resultMap="reviewCommentRM">
 		SELECT content, write_date, member_id
 		FROM reviewcomment
 	</select>
