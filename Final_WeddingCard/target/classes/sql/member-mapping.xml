@@ -29,7 +29,7 @@
 	
 	<select id="login" parameterType="member" resultMap="memberRM">
 		<include refid="select-member"/>
-		WHERE member_id=${member_id} AND password=${password} 
+		WHERE member_id=#{memberId} AND password=#{password} 
 	</select>
 	
 	<select id="findId" parameterType="member" resultMap="memberRM">
