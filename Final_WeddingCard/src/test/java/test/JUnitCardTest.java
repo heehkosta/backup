@@ -39,8 +39,8 @@ public class JUnitCardTest {
 		/// ============== insert ============================
 		System.out.println("card 추가");
 		
-		System.out.println("insert::"+session.insert("cardSql.createCard", cvo3));
-		session.commit();
+		//System.out.println("insert::"+session.insert("cardSql.createCard", cvo3));
+		//session.commit();
 		
 		System.out.println("card 상세정보");
 		System.out.println(session.selectOne("cardSql.getCard", 0));
@@ -55,8 +55,8 @@ public class JUnitCardTest {
 		
 		
 		
-		System.out.println("card 삭제::"+session.delete("cardSql.deleteCard", 4));
-		session.commit();
+		//System.out.println("card 삭제::"+session.delete("cardSql.deleteCard", 4));
+		//session.commit();
 		
 		System.out.println("card List\n"+session.selectList("cardSql.getAllCards", "pcp8282"));
 		
