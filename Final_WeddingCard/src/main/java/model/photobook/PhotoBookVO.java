@@ -133,6 +133,15 @@ public class PhotoBookVO {
 	}
 
 	public PhotoBookVO(int bookNo, String bookName, String fileName,
+			MemberVO memberVO) {
+		super();
+		this.bookNo = bookNo;
+		this.bookName = bookName;
+		this.fileName = fileName;
+		this.memberVO = memberVO;
+	}
+
+	public PhotoBookVO(int bookNo, String bookName, String fileName,
 			String createDate, String bookComment, MemberVO memberVO,
 			MultipartFile file) {
 		super();
