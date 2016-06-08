@@ -20,14 +20,15 @@ public class MemberController extends MultiActionController{
 	
 	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response,  HttpSession session, MemberVO pvo) throws Exception{
-		
-		MemberVO rvo =memberService.login(pvo);
-		
+		System.out.println("login call..");
+		System.out.println(pvo);
+		MemberVO rvo = memberService.login(pvo);
+		System.out.println("login call2222222");
 		if(rvo != null){//로그인 성공
 			session.setAttribute("mvo", rvo);
 		}
 		//이미 바인딩 됐다...
-		return new ModelAndView("login_result");
+		return new ModelAndView("member/login_result");
 	}
 	
 	public ModelAndView logout(HttpServletRequest request,
