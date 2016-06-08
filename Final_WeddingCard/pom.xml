@@ -7,6 +7,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Final_WeddingCard Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -149,7 +153,44 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>     <!-- NOT org.junit here -->
+			<artifactId>junit-dep</artifactId>
+			<version>4.8.2</version>
+		</dependency>
+
+
+
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<!-- Path -->
+					<path>/deploytest</path>
+					<!-- 구동중인 톰캣의 주소 + /manager/text -->
+					<url>http://52.78.3.38:8080/manager/text</url>
+					<!-- 톰캣 사용자 정보 -->
+					<username>tomcat</username>
+					<password>admin</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
 
 </project>

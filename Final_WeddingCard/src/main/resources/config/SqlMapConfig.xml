@@ -15,6 +15,8 @@
 		<typeAlias alias="postComment" type="model.post.PostCommentVO"/>
 		<typeAlias alias="reviewComment" type="model.post.ReviewCommentVO"/>
 		<typeAlias alias="photoBook" type="model.photobook.PhotoBookVO"/>
+		<typeAlias alias="card" type="model.card.CardVO"/>
+		<typeAlias alias="cardComment" type="model.card.CardcommentVO"/>
 	</typeAliases>
 	
 	
@@ -34,6 +36,7 @@
 		<mapper resource="sql/member-mapping.xml"/>
 		<mapper resource="sql/post-mapping.xml"/>
 		<mapper resource="sql/photobook-mapping.xml"/>
+		<mapper resource="sql/card-mapping.xml"/>
 	</mappers>
 
 </configuration>

@@ -30,5 +30,160 @@ public class CardVO {
 	// reference
 	private MemberVO memberVO;
 	private PhotoBookVO photobookVO;
+	
+	public CardVO() {}
+	
+	
 
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+	}
+
+
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel, PhotoBookVO photobookVO) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+		this.photobookVO = photobookVO;
+	}
+
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel, MemberVO memberVO) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+		this.memberVO = memberVO;
+	}
+
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel, MemberVO memberVO,
+			PhotoBookVO photobookVO) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+		this.memberVO = memberVO;
+		this.photobookVO = photobookVO;
+	}
+
+	public int getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(int cardNo) {
+		this.cardNo = cardNo;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
+	}
+
+	public String getCardDate() {
+		return cardDate;
+	}
+
+	public void setCardDate(String cardDate) {
+		this.cardDate = cardDate;
+	}
+
+	public String getHallName() {
+		return hallName;
+	}
+
+	public void setHallName(String hallName) {
+		this.hallName = hallName;
+	}
+
+	public String getHallLocation() {
+		return hallLocation;
+	}
+
+	public void setHallLocation(String hallLocation) {
+		this.hallLocation = hallLocation;
+	}
+
+	public String getHallTel() {
+		return hallTel;
+	}
+
+	public void setHallTel(String hallTel) {
+		this.hallTel = hallTel;
+	}
+
+	public String getGroomTel() {
+		return groomTel;
+	}
+
+	public void setGroomTel(String groomTel) {
+		this.groomTel = groomTel;
+	}
+
+	public String getBrideTel() {
+		return brideTel;
+	}
+
+	public void setBrideTel(String brideTel) {
+		this.brideTel = brideTel;
+	}
+
+	public MemberVO getMemberVO() {
+		return memberVO;
+	}
+
+	public void setMemberVO(MemberVO memberVO) {
+		this.memberVO = memberVO;
+	}
+
+	public PhotoBookVO getPhotobookVO() {
+		return photobookVO;
+	}
+
+	public void setPhotobookVO(PhotoBookVO photobookVO) {
+		this.photobookVO = photobookVO;
+	}
+
+	@Override
+	public String toString() {
+		return "CardVO [cardNo=" + cardNo + ", template=" + template
+				+ ", cardDate=" + cardDate + ", hallName=" + hallName
+				+ ", hallLocation=" + hallLocation + ", hallTel=" + hallTel
+				+ ", groomTel=" + groomTel + ", brideTel=" + brideTel
+				+ ", memberVO=" + memberVO + ", photobookVO=" + photobookVO
+				+ "]";
+	}
 }
