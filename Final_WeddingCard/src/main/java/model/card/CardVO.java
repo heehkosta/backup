@@ -32,6 +32,23 @@ public class CardVO {
 	private PhotoBookVO photobookVO;
 	
 	public CardVO() {}
+	
+	
+
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+	}
+
 
 	public CardVO(int cardNo, String template, String cardDate,
 			String hallName, String hallLocation, String hallTel,
