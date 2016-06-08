@@ -27,7 +27,8 @@ public class JUnitCardTest {
 		SqlSession session = facotry.openSession();
 		
 		MemberVO mvo = new MemberVO("pcp8282", "8282", "박찬영", "113123123");
-		PhotoBookVO pvo = new PhotoBookVO(1, "111", "123123", mvo);
+		
+	PhotoBookVO pvo = new PhotoBookVO(1, "111", "123123", mvo);
 		
 		CardVO cvo = new CardVO(1, "무료", "", "예식장", "강남",
 				"37-222", "11-222", "444-444",mvo,pvo);
