@@ -1,5 +1,7 @@
 package model.photobook;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import model.member.MemberVO;
 
 public class PhotoBookVO {
@@ -9,7 +11,7 @@ public class PhotoBookVO {
 	private String fileName;
 	private String createDate;
 	private MemberVO memberVO;
-	
+	private MultipartFile file;
 	
 	public PhotoBookVO() {}
 	
@@ -30,6 +32,27 @@ public class PhotoBookVO {
 		this.fileName = fileName;
 		this.createDate = createDate;
 		this.memberVO = memberVO;
+	}
+	
+	public PhotoBookVO(int bookNo, String bookName, String fileName,
+			String createDate, MultipartFile file) {
+		super();
+		this.bookNo = bookNo;
+		this.bookName = bookName;
+		this.fileName = fileName;
+		this.createDate = createDate;
+		this.file = file;
+	}
+
+	public PhotoBookVO(int bookNo, String bookName, String fileName,
+			String createDate, MemberVO memberVO, MultipartFile file) {
+		super();
+		this.bookNo = bookNo;
+		this.bookName = bookName;
+		this.fileName = fileName;
+		this.createDate = createDate;
+		this.memberVO = memberVO;
+		this.file = file;
 	}
 
 	public int getBookNo() {
@@ -71,11 +94,19 @@ public class PhotoBookVO {
 	public void setMemberVO(MemberVO memberVO) {
 		this.memberVO = memberVO;
 	}
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	@Override
 	public String toString() {
 		return "PhotoBookVO [bookNo=" + bookNo + ", bookName=" + bookName
 				+ ", fileName=" + fileName + ", createDate=" + createDate
-				+ ", memberVO=" + memberVO + "]";
+				+ ", memberVO=" + memberVO + ", file=" + file + "]";
 	}
 }
