@@ -34,10 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				ㅇ<p>
 				ㅁㄴㅇ<p>
 				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴ<p>
-				ㅇㅁㄴ<p>
-				ㅇㅁ<p>
 			</div>
 			
 			<!-- 상세 정보 등 -->
@@ -46,28 +42,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				ㅇㄴ<p>
 				ㅁㅇ<p>
 				ㅁㄴ<p>
-				ㅇ<p>
-				ㅁㄴㅇ<p>
-				ㅁㄴ<p>
 			</div>
-				
 		</div>
-		
-		
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	<!--header-->
 	<div class="content">
