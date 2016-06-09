@@ -31,9 +31,32 @@ public class CardVO {
 	private MemberVO memberVO;
 	private PhotoBookVO photobookVO;
 	
+	private String url;
+	
+	
 	public CardVO() {}
 	
 	
+
+	public CardVO(int cardNo, String template, String cardDate,
+			String hallName, String hallLocation, String hallTel,
+			String groomTel, String brideTel, MemberVO memberVO,
+			PhotoBookVO photobookVO, String url) {
+		super();
+		this.cardNo = cardNo;
+		this.template = template;
+		this.cardDate = cardDate;
+		this.hallName = hallName;
+		this.hallLocation = hallLocation;
+		this.hallTel = hallTel;
+		this.groomTel = groomTel;
+		this.brideTel = brideTel;
+		this.memberVO = memberVO;
+		this.photobookVO = photobookVO;
+		this.url = url;
+	}
+
+
 
 	public CardVO(int cardNo, String template, String cardDate,
 			String hallName, String hallLocation, String hallTel,
@@ -176,6 +199,19 @@ public class CardVO {
 	public void setPhotobookVO(PhotoBookVO photobookVO) {
 		this.photobookVO = photobookVO;
 	}
+
+	
+	public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
 
 	@Override
 	public String toString() {

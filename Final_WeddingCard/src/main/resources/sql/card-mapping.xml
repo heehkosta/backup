@@ -20,12 +20,13 @@
 		<result property="brideTel" column="bride_tel" jdbcType="VARCHAR" />
 		<result property="memberVO.memberId" column="member_id" />
 		<result property="photobookVO.bookNo" column="book_no" />
+		<result property="url" column="url" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<sql id="select-card">
 		SELECT card_no, template, card_date, hall_name,
 		hall_location, hall_tel, groom_tel
-		,bride_tel , member_id, book_no
+		,bride_tel , member_id, book_no, url
 		FROM
 		card
 	</sql>
@@ -53,16 +54,17 @@
 		#{hallName}, #{hallLocation},
 		#{hallTel}, #{groomTel}, #{brideTel},
 		#{memberVO.memberId},
-		#{photobookVO.bookNo})
+		#{photobookVO.bookNo},
+		#{url})
 	</insert>
 
 	<update id="modifyCard" parameterType="card">
 		UPDATE card
 		SET template=#{template} , hall_name=#{hallName},
 		hall_location=#{hallLocation}, hall_tel=#{hallTel},
-		groom_tel=#{groomTel}, bride_tel=#{brideTel}
-		,
-		book_no=#{photobookVO.bookNo}
+		groom_tel=#{groomTel}, bride_tel=#{brideTel},
+		book_no=#{photobookVO.bookNo},
+		url = #{url}
 		WHERE card_no = #{cardNo} AND member_id =
 		#{memberVO.memberId}
 	</update>
