@@ -2,9 +2,12 @@ package model.card;
 
 import java.sql.SQLException;
 
+import model.member.MemberDao;
+import model.member.MemberVO;
+
 import org.apache.ibatis.session.SqlSession;
 
-public class CardDaoImpl implements MemberDao{
+public class CardDaoImpl implements CardDao{
 	
 	private SqlSession sqlSession;
 
