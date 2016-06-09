@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.File;
 import java.util.List;
@@ -60,10 +60,10 @@ public class PhotoBookController extends MultiActionController {
 		return new ModelAndView("test");
 	} // create
 	
-	/*
+	
 	 * modifyPhotoBook
 	 * deletePhotoBook
-	 */
+	 
 	
 	public ModelAndView list (HttpServletRequest request, HttpServletResponse response,
 							HttpSession session) throws Exception {
@@ -89,3 +89,4 @@ public class PhotoBookController extends MultiActionController {
 		return new ModelAndView("pbcontent", "pbvo", pbvo);
 	} // detail
 }
+*/
