@@ -42,7 +42,7 @@
 <bean id="memberService" class="model.member.MemberServiceImpl" p:memberDao-ref="memberDao" />
 
 <bean id="cardDao" class="model.card.CardDaoImpl" p:sqlSession-ref="sqlSessionTemplate" />
-<bean id="cardService" class="model.card.CardServiceImpl" p:memberDao-ref="cardDao" />
+<bean id="cardService" class="model.card.CardServiceImpl" p:cardDao-ref="cardDao" />
 
 
 <!--Controller 등록  -->
